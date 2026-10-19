@@ -33,6 +33,7 @@ public class carrera {
 
         // Capturar mes de nacimiento
         int mes;
+
         do {
             System.out.print("\nIngresa el mes en que naciste (1-12): ");
             mes = teclado.nextInt();
@@ -41,7 +42,7 @@ public class carrera {
         mesNacimiento[mes - 1] = mes;
 
 
-        // Etapa 2: residuo entre 7
+        // Etapa 2: residuo de la entrada entre 7
         System.out.println("\nETAPA 2");
 
         int entrada2 = datoEntrada;
@@ -53,35 +54,44 @@ public class carrera {
         System.out.println("Salida etapa 2: " + datoEntrada);
 
 
-        // Etapa 3: porcentaje del 12%
+        // Etapa 3: aumentar el 12 por ciento
         System.out.println("\nETAPA 3");
 
         double entrada3 = datoEntrada;
         double porcentaje = entrada3 * 0.12;
-        datoEntrada = (int) (entrada3 + (entrada3 * 0.12));
+        datoEntrada = (int) (entrada3 + porcentaje);
 
         System.out.println("Entrada: " + entrada3);
         System.out.println("Porcentaje del 12%: " + porcentaje);
         System.out.println("Salida etapa 3: " + datoEntrada);
 
 
-        // Etapa 4: suma de 10 valores
+        // Etapa 4: suma de N valores
         System.out.println("\nETAPA 4");
 
-        int[] valores = new int[10];
+        int valor;
         int sumaValores = 0;
+        int contador = 0;
+        String respuesta;
 
-        for (int i = 0; i < valores.length; i++) {
-            System.out.print("Ingresa el valor " + (i + 1) + ": ");
-            valores[i] = teclado.nextInt();
-            sumaValores += valores[i];
-        }
+        do {
+            System.out.print("Ingresa un valor: ");
+            valor = teclado.nextInt();
+
+            sumaValores += valor;
+            contador++;
+
+            System.out.print("¿Quieres seguir sumando? (si/no): ");
+            respuesta = teclado.next().toLowerCase();
+
+        } while (respuesta.equals("si"));
 
         int entrada4 = datoEntrada;
         datoEntrada = entrada4 + sumaValores;
 
         System.out.println("Entrada: " + entrada4);
-        System.out.println("Suma de los 10 valores: " + sumaValores);
+        System.out.println("Cantidad de valores ingresados: " + contador);
+        System.out.println("Suma de los valores: " + sumaValores);
         System.out.println("Salida etapa 4: " + datoEntrada);
 
 
@@ -89,6 +99,7 @@ public class carrera {
         System.out.println("\nETAPA 5");
 
         int divisor;
+
         do {
             System.out.print("Elige un divisor del 1 al 9: ");
             divisor = teclado.nextInt();
@@ -100,8 +111,10 @@ public class carrera {
         System.out.println("Entrada: " + entrada5);
         System.out.println("Divisor: " + divisor);
         System.out.println("Salida etapa 5: " + salida5);
-        System.out.println("Sistema realizado por: Jose Angel Sierra");
+        System.out.println("Sistema Realizado por: Jose Angel Sierra Perez");
+
 
         teclado.close();
     }
 }
+
